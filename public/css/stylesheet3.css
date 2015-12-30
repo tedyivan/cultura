@@ -5,23 +5,32 @@
 
 .navbar-default{
 	background: transparent;
+
 }
 
 .navbar-default {
 	padding-top: 4px;
-    background-color: transparent;
+	background: url(../images/wood.png);
+    /*background-color: rgba(255, 255, 255, 0.5);*/
     border-color: transparent;
     font-size: 21px;
     
 }
 
+.imgSlider{
+	max-height: 250px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
 
 .navbar-default .navbar-nav>li>a {
 	color: #fff;
 }
  
 .item{
-	padding: 200px;
+
+	padding: 150px;
 	color: white;
 }
 
@@ -39,4 +48,13 @@
 	background-color: green;
 }
 
-
+#bootom{
+	background: url(../images/wood.png);
+	height: 100px;
+	text-align: center;
+	color: #fff;
+	margin-top: 100px;
+}
+.text-button{
+	margin-top: 10px;
+}

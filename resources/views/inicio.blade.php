@@ -22,8 +22,7 @@
              </div>
             
             <div class="item">
-              <h1>Pagina <span>Teste2</span></h1>
-              <h2>Testando</h2>
+              <img class="imgSlider" src="/images/sofa.jpg">
             </div>
             
           </div>

@@ -122,7 +122,7 @@ class ProdutoController extends Controller {
       //	$produto->images()->save($image);
 
 
-      	return view('list-adm-produto');
+      	return view('produto.list-adm-produto');
 	}
 
 	/**
@@ -134,6 +134,9 @@ class ProdutoController extends Controller {
 	public function show($id)
 	{
 		//
+		$produto =Produto::find($id);
+		$image = Image::whereProduto_id($produto->id)->first();
+         return view('produto.show-produto',compact('produto','image'));
 	}
 
 	/**

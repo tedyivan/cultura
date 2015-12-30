@@ -5,11 +5,20 @@
 			.formulario{
 				padding: 30px;
 			}
+			.buttons-abaixo{
+				text-align: center;
+				margin-top: 30px;
+			}
+			.titulo{
+				margin-top: 20px;
+				margin-bottom: 30px;
+				font:24px normal Oxygen;
+			}
 	</style>
 	
 	<div class="container">
 			<div class="formulario">
-
+			<label class="titulo">Registo de produto</label>
 				{!! Form::open(['url'=>'/produto', 'method'=>'POST', 'files'=>'true']) !!}
 					<div class="form-group">
 					
@@ -56,7 +65,7 @@
       				
       				<div class="form-group buttons-abaixo">
 					<button type="submit" class="btn btn-primary">Registar</button>
-				    <a href="{{ url('/image') }}" class="btn btn-warning">Cancel</a>
+				    <a href="{{ url('/produto') }}" class="btn btn-warning">Cancel</a>
 				    </div>
 
 
