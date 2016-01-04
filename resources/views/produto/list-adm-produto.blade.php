@@ -35,6 +35,7 @@
 							        <td><a href="/produto/{{ $produto->id }}">{!! $produto->nome!!}</a></td>
 							        <td>{!! $produto->preco !!}</td>
 							        <td>{!! $produto->descricao !!}</td>
+							        <td><a href="/produto/{{ $produto->id }}/edit">editar<span></span></a></td>
 									
 								</tr>
 							@endforeach

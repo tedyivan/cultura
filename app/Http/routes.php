@@ -23,3 +23,5 @@ Route::controllers([
 Route::get('categoria','CategoriaController@index');
 
 Route::resource('produto', 'ProdutoController'); 
+
+Route::resource('image','ImageController');

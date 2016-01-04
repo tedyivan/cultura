@@ -41,7 +41,7 @@
 					</li>
 					 
 					<li class="dropdown" role="menu">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adicionar
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracao
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/produto">Produtos</a></li>

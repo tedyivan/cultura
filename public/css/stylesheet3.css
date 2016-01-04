@@ -29,7 +29,7 @@
 }
  
 .item{
-
+	min-height: 250px;
 	padding: 150px;
 	color: white;
 }

@@ -20,7 +20,7 @@
 			
 			<div class="formulario">
 			<label class="titulo">Registo de produto</label>
-				{!! Form::open(['url'=>'/produto', 'method'=>'POST', 'files'=>'true']) !!}
+				{!! Form::model($produto,['url'=>'/produto/'.$produto->id, 'method'=>'PUT', 'files'=>'true']) !!}
 					<div class="form-group">
 					
 					<h4>Designacao</h4>		
@@ -44,20 +44,7 @@
 
 					<div class="form-group">
 					
-					<select name="categoria_id">
-  							@foreach ($categorias as $categoria) {
-    							<option value="1" >{{ $categoria->designacao }}</option>
-  							}
-  							@endforeach
-					</select>
 					
-					<!--
-					@foreach($categorias as $categoria)
-						<h2>{{ $categoria->designacao}}
-
-					@endforeach
-					-->
-
 					</div>
 					<div class="form-group">
          				<label for="userfile">Image File</label>

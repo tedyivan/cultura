@@ -4,6 +4,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Image;
+use Validator;
 
 class ImageController extends Controller {
 
@@ -42,6 +44,7 @@ class ImageController extends Controller {
 		//
 
 		// Validation //
+     /*
       $validation = Validator::make($request->all(), [
          'caption'     => 'required|regex:/^[A-Za-z ]+$/',
          'userfile'     => 'required|image|mimes:jpeg,png|min:1|max:250'
@@ -52,7 +55,7 @@ class ImageController extends Controller {
          return redirect()->back()->withInput()
                           ->with('errors', $validation->errors() );
       }
-
+	*/
       $image = new Image;
 
       // upload the image //
@@ -63,8 +66,10 @@ class ImageController extends Controller {
       
       // save image data into database //
       $image->file = $destination_path . $filename;
-      $image->caption = $request->input('caption');
+      $image->caption = $request->input('nome');
       //$image->description = $request->input('description');
+      $image->produto_id = '2';
+      $image->isexist="true";
       $image->save();
 
       return redirect('/')->with('message','You just uploaded an image!');

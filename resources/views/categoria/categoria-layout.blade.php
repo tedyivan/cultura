@@ -7,7 +7,7 @@
     <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js')}}"></script>
 	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap.min.css') }}">
 	<link rel="stylesheet"  href="{{ asset('/css/stylesheet3.css') }}">
-	
+	<script type="text/javascript" src="{{ asset('/js/todasScripts.js')}}"></script>
 
 </head>
 <body>
@@ -41,7 +41,7 @@
 					</li>
 					 
 					<li class="dropdown" role="menu">
-						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adicionar
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracao
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="">Produtos</a></li>
