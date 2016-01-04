@@ -72,17 +72,19 @@
 		
 
 		<div class="col-md-4">
+			
 			<div class="row">
 				<div class="imgcima">
-					<img src="{{ asset($image->file) }}" height="300px" id="cima"/>	
+				<img src="{{ asset($images->first()->file) }}" height="300px" id="cima"/> 
 				</div>
 			</div>	
 
 			<div class="row baixos">
-				<img src="{{ asset($image->file) }}" height="150px" width="150px" id="imgClickAndChange" onclick='changeImage()' />
-				<img src="{{ asset($image->file) }}" height="150px" width="150px" onclick="changeImage()"/>
-				<img src="{{ asset($image->file) }}" height="150px" width="150px" onclick="changeImage()"/>
-				<img src="{{ asset($image->file) }}" height="150px" width="150px" onclick="changeImage()"/>
+			@foreach($images as $image)
+			
+				<img src="{{ asset($image->file) }}" height="150px" width="150px" id="imgClickAndChange" onclick="changeImage('{{ asset($image->file) }}')" />
+				
+			@endforeach
 			</div>
 			<div class="row btn-add-img">
 				<a class="btn uppic btn-primary" role="button" data-toggle="modal" href="#upload" data-id="{!! $produto->id !!}">

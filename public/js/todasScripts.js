@@ -1,9 +1,21 @@
 
-			 function changeImage() {
+			/* function changeImage() {
      			
             		document.getElementById("cima").src = "/images/jesus.jpg";
         			//alert('yaaaa');
         		}
+			*/
+
+			function changeImage(source) {
+     				
+            		document.getElementById("cima").src = source;
+        			
+        		}
+
+
+
+
+
 
 /*
         	function uploadPic() {
