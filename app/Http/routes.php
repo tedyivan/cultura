@@ -20,7 +20,8 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('categoria','CategoriaController@index');
+//Route::get('categoria','CategoriaController@index');
+Route::resource('categoria','CategoriaController');
 
 Route::resource('produto', 'ProdutoController'); 
 

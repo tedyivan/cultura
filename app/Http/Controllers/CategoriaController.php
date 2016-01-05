@@ -38,6 +38,7 @@ class CategoriaController extends Controller {
 	public function create()
 	{
 		//
+
 	}
 
 	/**
@@ -45,9 +46,14 @@ class CategoriaController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
+		$categoria = new Categoria;
+		$categoria->designacao=$request->input('designacao');
+		$categoria->descricao=$request->input('descricao');
+		$categoria->isexist="true";
+		$categoria->save();
 	}
 
 	/**

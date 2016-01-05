@@ -8,8 +8,9 @@
 			
 			.baixos{
 				padding: 10px;
-				background: gray;
+				background: #e1e1e1;
 				margin-top:30px;
+				text-align: center;
 			}
 			.btn-baixos{
 				margin-top: 30px;
@@ -17,7 +18,7 @@
 				text-align: center;
 			}
 			.imgcima{
-				max-height: 300px;
+				max-height: 400px;
 				display: block;
 			    margin-left: auto;
 			    margin-right: auto;
@@ -25,6 +26,44 @@
 			.btn-add-img{
 				margin-top: 10px;
 			}
+
+			.baixos-icon img{
+
+			}
+
+			.baixos-icon{
+				position: relative;
+				overflow: hidden;
+			}
+			.baixos-overlay{
+				position: absolute;
+				background: rgba(0,0,0,.5);
+				width: 100%;
+				height: 100%;
+				
+			}
+
+			.baixos-icon:hover .baixos-overlay{
+				top:0;
+			} 
+
+			.lupa{
+				font-size: 50px;
+				color: #fff;
+				text-align: center;
+				
+			    
+			}
+
+			.cima{
+				text-align: center;
+			}
+
+			
+
+			
+
+
 	</style>
 	<!-- A parte do modal para fazer upload-->
 	<div class="modal fade" id="upload" tabindex="-1" aria-hidden="true" role="dialog">
@@ -41,7 +80,7 @@
 							
 							<h4>Designacao</h4>		
 								{!!Form::text('nome',null,['class'=>'form-control']) !!}
-							<input id="produto_id" name="produto_id" class="form-control">
+							<input id="produto_id" name="produto_id" class="form-control" type="hidden">
 							</div>
 				
 							<div class="form-group">
@@ -73,17 +112,24 @@
 
 		<div class="col-md-4">
 			
-			<div class="row">
+			<div class="row cima">
 				<div class="imgcima">
-				<img src="{{ asset($images->first()->file) }}" height="300px" id="cima"/> 
+				<img src="{{ asset($images->first()->file) }}" height="400px" id="cima"/> 
 				</div>
 			</div>	
 
 			<div class="row baixos">
 			@foreach($images as $image)
-			
-				<img src="{{ asset($image->file) }}" height="150px" width="150px" id="imgClickAndChange" onclick="changeImage('{{ asset($image->file) }}')" />
-				
+			 	<div class="col-md-4">
+					<div class="baixos-icon">
+						<img src="{{ asset($image->file) }}" height="150px" width="150px" id="imgClickAndChange" onclick="changeImage('{{ asset($image->file) }}')" />
+						<div class="baixos-overlay">
+							<i type="hidden" onclick="changeImage('{{ asset($image->file) }}')" class="lupa glyphicon glyphicon-zoom-in"></i>
+						</div>
+						
+
+					</div>
+				</div>
 			@endforeach
 			</div>
 			<div class="row btn-add-img">
@@ -109,6 +155,11 @@
 					<label>Descricao: </label>
 					{!! $produto->descricao !!}
 				</div>
+
+				<div class="form-group">
+					<label>Categoria:</label>
+					{!!$categoria_produto->designacao!!}
+				</div>
 		</div>
 		
 		</div>
@@ -117,7 +168,7 @@
 			
 			<a href="{{ url('/produto/') }}" class="btn btn-primary" role="button">
                Voltar
-               <span class="glyphicon glyphicon-chevron-right"></span>
+               <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
 		</div>
 		

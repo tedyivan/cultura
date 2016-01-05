@@ -44,8 +44,8 @@
 						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracao
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="">Produtos</a></li>
-							<li><a href="">Categorias</a></li>
+							<li><a href="/produto">Produtos</a></li>
+							<li><a href="/categoria">Categorias</a></li>
 
 					 </ul>	
 					

@@ -136,8 +136,8 @@ class ProdutoController extends Controller {
 		//
 		$produto =Produto::find($id);
 		$images = Image::whereProduto_id($produto->id)->get();
-		
-         return view('produto.show-produto',compact('produto','images'));
+		$categoria_produto = Categoria::find($produto->categoria_id);
+         return view('produto.show-produto',compact('produto','images','categoria_produto'));
 	}
 
 	/**
