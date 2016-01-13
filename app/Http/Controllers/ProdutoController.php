@@ -9,6 +9,8 @@ use App\Produto;
 use App\Categoria;
 use App\Image;
 use Validator;
+use Auth;
+
 class ProdutoController extends Controller {
 
 	/**
@@ -20,8 +22,28 @@ class ProdutoController extends Controller {
 	{
 		//
 		$produtos = Produto::paginate(10);
-		return view('produto.list-adm-produto',compact('produtos'));
+		//$categorias = Categoria::paginate(10);
+		$images = Image::all();
+		$categorias = Categoria::all();
+		//own query
+		$produtos_imgs=DB::table('produtos')
+						->join('images','produtos.id','=','images.produto_id')
+						->select('produtos.*','images.file')
+						->groupBy('produtos.nome')
+						->get();
+
+
+
+
+		if (Auth::check()) {
+			
+			return view('produto.list-adm-produto',compact('produtos','categorias'));
+		} else
+		{
+			return view('produto.list-produto',compact('produtos','categorias','images','produtos_imgs'));		  
+		}
 	}
+
 
 	/**
 	 * Show the form for creating a new resource.

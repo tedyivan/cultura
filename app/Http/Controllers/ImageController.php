@@ -68,7 +68,7 @@ class ImageController extends Controller {
       $image->file = $destination_path . $filename;
       $image->caption = $request->input('nome');
       //$image->description = $request->input('description');
-      $image->produto_id = '2';
+      $image->produto_id = $request->input('produto_id');
       $image->isexist="true";
       $image->save();
 

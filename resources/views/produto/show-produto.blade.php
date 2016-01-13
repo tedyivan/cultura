@@ -59,6 +59,10 @@
 				text-align: center;
 			}
 
+			.dadosproduto {
+				margin-left: 70px;
+			}
+
 			
 
 			
@@ -140,7 +144,7 @@
 				
 		</div>		
 		
-		<div class="col-md-3">
+		<div class="dadosproduto col-md-3">
 				<div class="form-group">
 					<label>Nome : </label>
 					{!! $produto->nome !!}
