@@ -25,11 +25,28 @@
 			.dvnome{
 				text-align: left;
 			}
+
+			.carousel-control.left, .carousel-control.right {
+				   background-image:none;
+				   filter:none;
+			}
+
+			.carousel img {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  min-width: 90%;
+			  max-width: 90%;
+			  height: 500px;
+			}
+
+
 	</style>
 	
 	
 	<div class="container">
-				<div class="row formulario">
+				
+				<div class="row formulario hidden-xs">
 					
 					<div class="col-md-11">
 					<h3>Produtos</h3>
@@ -53,16 +70,86 @@
 									</div>
 								</div>
 							@endforeach
+											
+
 						</div>
 								
 					</div>
-					<div class="col-md-1 btn-lateral">
+					<div class="col-md-1 btn-lateral ">
 						<a class="btn btn-primary" href="{{ url('/produto/create') }}">adicionar <span class="glyphicon glyphicon-plus"></span></a>
 					</div>
 
 
 
 				</div>
+
+				<div class="row formulario hidden-lg">
+				<div class="hidden-lg">
+							
+							<div id="carouselProduto" class="carousel slide" data-ride="carousel" data-interval="false" >
+								  <!-- Indicators -->
+								  <!--
+								  <ol class="carousel-indicators">
+								    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+								    <li data-target="#myCarousel" data-slide-to="1"></li>
+								    <li data-target="#myCarousel" data-slide-to="2"></li>
+								    <li data-target="#myCarousel" data-slide-to="3"></li>
+								  </ol>
+									-->
+								  <!-- Wrapper for slides -->
+								  <div class="carousel-inner" role="listbox">
+								    
+									@foreach($produtos_imgs as $count=>$produto_img)
+            								
+											@if($count == 0)
+												<div class="item active">
+
+										           <img src="{{ asset($produto_img->file) }}" id="imgClickAndChange" onclick="changeImage('{{ asset($produto_img->file) }}')" />
+									      		
+									      		</div>
+										    
+										    @else
+										    
+										    <div class="item">
+										    	   <img src="{{ asset($produto_img->file) }}" id="imgClickAndChange" onclick="changeImage('{{ asset($produto_img->file) }}')" />
+										    </div>
+										    
+										    @endif
+
+										  <div class="hidden">
+										   {{++$count }}
+										   </div>
+									
+									@endforeach
+
+
+
+
+
+
+
+
+
+
+								  </div>
+
+								  <!-- Left and right controls -->
+								  <a class="left carousel-control" href="#carouselProduto" role="button" data-slide="prev">
+								    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								    <span class="sr-only">Previous</span>
+								  </a>
+								  <a class="right carousel-control" href="#carouselProduto" role="button" data-slide="next">
+								    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								    <span class="sr-only">Next</span>
+								  </a>
+							</div>
+
+
+
+						</div>
+					</div>
+
+
 	</div>
 
 

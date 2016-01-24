@@ -46,3 +46,6 @@
        	$('#modalcategoria').modal('show');
        }
 
+
+      
+

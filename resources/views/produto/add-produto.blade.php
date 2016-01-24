@@ -47,7 +47,7 @@
 					<h4 for="categoria_id">Categoria</h4>
 					<select name="categoria_id" class="form-control">
   							@foreach ($categorias as $categoria) {
-    							<option value="1" >{{ $categoria->designacao }}</option>
+    							<option value="{{$categoria->id}}" >{{ $categoria->designacao }}</option>
   							}
   							@endforeach
 					</select>
@@ -84,7 +84,7 @@
 						
 						<div class="modal-body">
 							
-								{!! Form::open(['url'=>'/categoria', 'method'=>'POST', 'files'=>'true']) !!}
+							{!! Form::open(['url'=>'/categoria', 'method'=>'POST', 'files'=>'true']) !!}
 									<div class="form-group">
 									
 									<h4>Designacao</h4>		
@@ -99,12 +99,12 @@
 				      	</div>			
 				      	<div class="modal-footer">
 				      				<div class="form-group buttons-abaixo">
-									<button type="submit" class="btn btn-primary">Registar</button>
+									<button type="submit" class="btn btn-primary" >Registar</button>
 								    <a href="{{ url('/produto/create') }}" class="btn btn-warning">Cancel</a>
 								    </div>
 						</div>
 
-						{!! Form::close() !!}
+						     {!! Form::close() !!}
 				
 					</div>	
 				</div>

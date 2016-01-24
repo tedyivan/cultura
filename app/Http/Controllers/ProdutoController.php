@@ -11,6 +11,8 @@ use App\Image;
 use Validator;
 use Auth;
 
+
+
 class ProdutoController extends Controller {
 
 	/**
@@ -21,6 +23,9 @@ class ProdutoController extends Controller {
 	public function index()
 	{
 		//
+		
+
+
 		$produtos = Produto::paginate(10);
 		//$categorias = Categoria::paginate(10);
 		$images = Image::all();
@@ -42,6 +47,7 @@ class ProdutoController extends Controller {
 		{
 			return view('produto.list-produto',compact('produtos','categorias','images','produtos_imgs'));		  
 		}
+
 	}
 
 
@@ -120,7 +126,7 @@ class ProdutoController extends Controller {
 		$produto->preco =$request->input('preco');
 		$produto->descricao=$request->input('descricao');
 		$produto->categoria_id=$request->input('categoria_id');
-		$produto->isexist="true";
+		$produto->isExist="true";
 		$produto->save();
 
 		$image = new Image;
@@ -144,7 +150,7 @@ class ProdutoController extends Controller {
       //	$produto->images()->save($image);
 
 
-      	return view('produto.list-adm-produto');
+      	return redirect('/produto');
 	}
 
 	/**
@@ -172,7 +178,8 @@ class ProdutoController extends Controller {
 	{
 		//
 		$produto =Produto::find($id);
-		return view('produto.edit-produto',compact('produto'));
+		$categorias = Categoria::all();
+		return view('produto.edit-produto',compact('produto','categorias'));
 	}
 
 	/**
@@ -184,6 +191,16 @@ class ProdutoController extends Controller {
 	public function update($id)
 	{
 		//
+
+		$produto = Produto::whereId($id)->first();
+
+		$produto->nome =$request->get('nome');
+		$produto->preco =$request->get('preco');
+		$produto->descricao=$request->get('descricao');
+		$produto->categoria_id=$request->get('categoria_id');
+		$produto->isExist="true";
+		
+		$produto->save();
 	}
 
 	/**
@@ -196,5 +213,31 @@ class ProdutoController extends Controller {
 	{
 		//
 	}
+
+	/**
+	acrescentado pra visualizar produtos com uma categoria especifica
+
+	**/
+	public function produtos($categ){
+
+			$categoria = Categoria::whereDesignacao($categ)->first();
+
+			$produtos = Produto::whereCategoria_id($categoria->id)->get();
+
+			$produtos_imgs=DB::table('produtos')
+						->where('categoria_id','=',$categoria->id)
+						->join('images','produtos.id','=','images.produto_id')
+						->select('produtos.*','images.file')
+						->groupBy('produtos.nome')
+						->get();
+
+
+
+
+			return view('produto.list-produto',compact('produtos','categorias','images','produtos_imgs'));
+
+	}
+
+
 
 }

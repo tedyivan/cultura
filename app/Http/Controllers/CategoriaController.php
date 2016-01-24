@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Categoria;
+use App\Produto;
 
 class CategoriaController extends Controller {
 
@@ -38,6 +39,8 @@ class CategoriaController extends Controller {
 	public function create()
 	{
 		//
+		
+		return view('categoria.add-categoria');
 
 	}
 
@@ -54,6 +57,8 @@ class CategoriaController extends Controller {
 		$categoria->descricao=$request->input('descricao');
 		$categoria->isexist="true";
 		$categoria->save();
+
+		return redirect('/produto/create');
 	}
 
 	/**
@@ -73,9 +78,12 @@ class CategoriaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($id, Request $request)
 	{
 		//
+		$categoria = Categoria::whereId($id)->first();
+
+		return view('categoria.edit-categoria',compact('categoria'));
 	}
 
 	/**
@@ -84,9 +92,19 @@ class CategoriaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Request $request)
 	{
 		//
+		$categoria = Categoria::whereId($id)->first();
+		$categoria->designacao = $request->get('designacao'); 
+		$categoria->descricao =$request->get('descricao');
+
+		$categoria->save();
+
+		return redirect('categoria/');
+
+
+
 	}
 
 	/**

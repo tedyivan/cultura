@@ -20,7 +20,7 @@ class CreateProdutosTable extends Migration {
 			$table->string('preco');
 			$table->text('descricao');
 			$table->integer('categoria_id')->unsigned();
-			$table->boolean('isexist');
+			$table->boolean('isExist');
 			
 			$table->timestamps();
 			$table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('CASCADE')->onUpdate('CASCADE');

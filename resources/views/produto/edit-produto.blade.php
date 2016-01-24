@@ -20,7 +20,7 @@
 			
 			<div class="formulario">
 			<label class="titulo">Registo de produto</label>
-				{!! Form::model($produto,['url'=>'/produto/'.$produto->id, 'method'=>'PUT', 'files'=>'true']) !!}
+				{!! Form::model($produto,['url'=>'/produto/'.$produto->id, 'method'=>'PATCH', 'files'=>'true']) !!}
 					<div class="form-group">
 					
 					<h4>Designacao</h4>		
@@ -43,13 +43,23 @@
 					</div>
 
 					<div class="form-group">
+											
+					<h4 for="categoria_id">Categoria</h4>
 					
+					<select id="categoria_id" name="categoria_id" class="form-control">
+  							@foreach ($categorias as $categoria) {
+    							<option value="{{$categoria->id}}" >{{ $categoria->designacao }}</option>
+  							}
+  							@endforeach
+					</select>
+					<a class="btn btn-primary" onclick="addcategoria()" href="#modalcategoria">adicionar <span class="glyphicon glyphicon-plus"></span></a>
 					
+							
+							{!! Form::label('categoria_id',$categorias)!!}
+							{!! Form::select('categoria_id', $categorias , Input::old('categoria_id')) !!}
+						
 					</div>
-					<div class="form-group">
-         				<label for="userfile">Image File</label>
-         				<input type="file" class="form-control" name="userfile">
-      				</div>
+					
       				
       				<div class="form-group buttons-abaixo">
 					<button type="submit" class="btn btn-primary">Registar</button>

@@ -23,6 +23,12 @@ Route::controllers([
 //Route::get('categoria','CategoriaController@index');
 Route::resource('categoria','CategoriaController');
 
+Route::get('produtos/{categoria}','ProdutoController@produtos');
+
 Route::resource('produto', 'ProdutoController'); 
 
+
+
 Route::resource('image','ImageController');
+
+Route::resource('administrador','AdministradorController');

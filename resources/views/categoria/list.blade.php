@@ -33,7 +33,12 @@
 								    
 								        <td><a href="/categoria/{{ $categoria->id }}">{!! $categoria->designacao!!}</a></td>
 								        <td>{!! $categoria->descricao !!}</td>
-								        <td><a href="/categoria/{{ $categoria->id }}/edit">editar<span></span></a></td>
+								        <td>
+								        	<a href="/categoria/{{ $categoria->id }}/edit">editar<span></span></a>
+								        	
+
+								        </td>
+
 										
 									</tr>
 								@endforeach

@@ -17,8 +17,9 @@
 				margin-left: 100px;
 				text-align: center;
 			}
-			.imgcima{
+			.imgcima img{
 				max-height: 400px;
+				max-width: 600px;
 				display: block;
 			    margin-left: auto;
 			    margin-right: auto;
@@ -64,8 +65,7 @@
 			}
 
 			
-
-			
+	
 
 
 	</style>
@@ -118,7 +118,7 @@
 			
 			<div class="row cima">
 				<div class="imgcima">
-				<img src="{{ asset($images->first()->file) }}" height="400px" id="cima"/> 
+				<img src="{{ asset($images->first()->file) }}" height="400px" width="500px" id="cima"/> 
 				</div>
 			</div>	
 
@@ -134,6 +134,7 @@
 
 					</div>
 				</div>
+
 			@endforeach
 			</div>
 			<div class="row btn-add-img">
